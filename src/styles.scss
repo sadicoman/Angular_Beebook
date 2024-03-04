@@ -1,1 +1,87 @@
-/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+@import url(./_normalize.scss);
+:root {
+  // Couleur
+  --color-primary: #fdda15; /* Jaune abeille */
+  --color-secondary: #d1a10e; /* Jaune foncé */
+  --color-accent: #f6e05e; /* Jaune clair */
+  --color-background: #fffbee; /* Fond très clair */
+  --color-text: #333; /* Texte sombre */
+  --color-text-min: #8d8d8d; /* Texte sombre */
+  --color-text-inverted: #ffffff; /* Texte clair */
+  --color-danger: #d9534f; /* Erreurs, dangers */
+  --color-success: #5cb85c; /* Succès, confirmations */
+  --color-info: #5bc0de; /* Informations générales */
+
+  //    Font
+  --font-family-base: "Rubik", sans-serif;
+  --font-family-heading: "Georgia", serif;
+  --font-size-base: 16px;
+  --font-size-large: 1.25rem; /* 20px si base est 16px */
+  --font-size-small: 0.875rem; /* 14px si base est 16px */
+
+  /* Tailles pour les titres */
+  --font-size-h1: 3rem; /* 48px si base est 16px */
+  --font-size-h2: 2.5rem; /* 40px si base est 16px */
+  --font-size-h3: 2rem; /* 32px si base est 16px */
+  --font-size-h4: 1.75rem; /* 28px */
+  --font-size-h5: 1.5rem; /* 24px */
+  --font-size-h6: 1.25rem; /* 20px, identique à --font-size-large */
+
+  //   Espace
+  --spacing-xs: 0.5rem; /* 8px */
+  --spacing-sm: 1rem; /* 16px */
+  --spacing-md: 1.5rem; /* 24px */
+  --spacing-lg: 2rem; /* 32px */
+  --spacing-xl: 3rem; /* 48px */
+
+  //   Border
+  --border-color: #ddd;
+  --border-width: 1px;
+  --border-radius-sm: 0.2rem; /* 2px */
+  --border-radius-md: 0.5rem; /* 4px */
+  --border-radius-lg: 1rem; /* 8px */
+
+  // Shadow / Ombre
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.12);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.17), 0 4px 6px rgba(0, 0, 0, 0.12);
+}
+
+.body {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
+  color: var(--color-text);
+}
+
+.title {
+  font-size: var(--font-size-h1);
+
+  &--primary {
+    color: var(--color-primary);
+  }
+
+  &--center {
+    text-align: center;
+  }
+
+  &--niveau2 {
+    font-size: var(--font-size-h2);
+  }
+  &--niveau3 {
+    font-size: var(--font-size-h3);
+  }
+  &--niveau4 {
+    font-size: var(--font-size-h4);
+  }
+  &--niveau5 {
+    font-size: var(--font-size-h5);
+  }
+  &--niveau6 {
+    font-size: var(--font-size-h6);
+  }
+}
+
+.bold {
+  font-weight: bold;
+}

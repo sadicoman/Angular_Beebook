@@ -1,1 +1,145 @@
-<p>auth works!</p>
+<div class="auth-page">
+  <div class="auth-page__login">
+    <div class="login__title">
+      <h1 class="title title--primary">Beebook</h1>
+      <p class="bold">
+        Avec Beebook, partagez et restez en contact avec votre entourage
+      </p>
+    </div>
+  </div>
+
+  <form class="formulaire" [ngClass]="{ invisible: isFormVisible }">
+    <div class="container__input">
+      <input
+        class="input"
+        type="text"
+        placeholder="Adresse e-mail ou numéro de tel."
+      />
+    </div>
+    <div class="container__input">
+      <input class="input" type="password" placeholder="Mot de passe" />
+    </div>
+    <div class="form__button">
+      <button class="btn btn-primary">Connexion</button>
+    </div>
+    <div class="form__infos">
+      <a class="form__lien" href="#"> Mot de passe oublié ?</a>
+    </div>
+  </form>
+
+  <div
+    class="container__compte--creer"
+    [ngClass]="{ invisible: isFormVisible }"
+  >
+    <div class="divider">ou</div>
+    <div class="create_page">
+      <button
+        class="btn btn--secondary btn--createAccount"
+        data-bs-toggle="modal"
+        data-bs-target="#exampleModal"
+        id="create-account-button"
+        (click)="isFormVisible = true"
+      >
+        Créer un compte
+      </button>
+    </div>
+    <div class="login-footer text-center row">
+      <p>
+        <a href="#">Créer une page</a> pour une célébrité, un groupe ou une
+        entreprise.
+      </p>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div
+    class="container__formulaire"
+    id="exampleModal"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+    [ngClass]="{ visible: isFormVisible }"
+  >
+    <div class="form__register">
+      <button
+        type="button"
+        class="btn btn--close"
+        data-bs-dismiss="modal"
+        aria-label="Close"
+        (click)="isFormVisible = false"
+      >
+        Retour
+      </button>
+      <h2 class="title title--niveau4">S'inscrire</h2>
+      <p>C'est rapide et facile</p>
+    </div>
+
+    <form class="formulaire">
+      <div class="form__group--input">
+        <input class="input" type="text" placeholder="Prénom" />
+        <input class="input" type="text" placeholder="Nom de famille" />
+      </div>
+      <div class="form__inline--input">
+        <input
+          class="input"
+          type="text"
+          placeholder="Numéro de mobile ou e-mail"
+        />
+      </div>
+      <div class="form__inline--input">
+        <input class="input" type="text" placeholder="Nouveau mot de passe" />
+      </div>
+      <div class="form__inline--date">
+        <p>Date de naissance</p>
+        <div class="form__select--date">
+          <select class="input" name="jour" id="jourSelect">
+            <option *ngFor="let jour of jours" [value]="jour">
+              {{ jour }}
+            </option>
+          </select>
+          <select class="input" name="mois" id="moisSelect">
+            <option *ngFor="let mois of mois" [value]="mois">{{ mois }}</option>
+          </select>
+          <select class="input" name="annee" id="anneeSelect">
+            <option *ngFor="let annee of annees" [value]="annee">
+              {{ annee }}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="form__inline--genre">
+        <p>Genre :</p>
+        <div class="form-radio-item flex-1 b flex aic gap-1 jcc">
+          <label for="femme">Femme</label>
+          <input type="radio" name="genre" id="femme" />
+        </div>
+        <div class="form-radio-item flex-1 b flex aic gap-1 jcc">
+          <label for="homme">Homme</label>
+          <input type="radio" name="genre" id="homme" />
+        </div>
+        <div class="form-radio-item flex-1 b flex aic gap-1 jcc">
+          <label for="autre">Personnalisé</label>
+          <input type="radio" name="genre" id="autre" />
+        </div>
+      </div>
+      <p class="form-register-infos">
+        En cliquant sur S’inscrire, vous acceptez nos Conditions générales.
+        Découvrez comment nous recueillons, utilisons et partageons vos données
+        en lisant notre Politique d’utilisation des données et comment nous
+        utilisons les cookies et autres technologies similaires en consultant
+        notre Politique d’utilisation des cookies. Vous recevrez peut-être des
+        notifications par texto de notre part et vous pouvez à tout moment vous
+        désabonner.
+      </p>
+      <div class="form-register-button flex jcc">
+        <button class="btn btn-success">S'inscrire</button>
+      </div>
+    </form>
+  </div>
+  <!-- copyright -->
+  <div class="pageFooter" data-referrer="page_footer" data-testid="page_footer">
+    <div class="copyright">
+      <p class="copyright__text">Bee © 2023</p>
+    </div>
+  </div>
+</div>
