@@ -5,13 +5,17 @@
   --color-primary: #fdda15; /* Jaune abeille */
   --color-secondary: #d1a10e; /* Jaune foncé */
   --color-accent: #f6e05e; /* Jaune clair */
-  --color-background: #fffbee; /* Fond très clair */
+  --color-background: #fff; /* Fond très clair */
+  // --color-background-secondary: ;
+  --color-surface: #fff;
   --color-text: #333; /* Texte sombre */
   --color-text-min: #8d8d8d; /* Texte sombre */
   --color-text-inverted: #ffffff; /* Texte clair */
   --color-danger: #d9534f; /* Erreurs, dangers */
   --color-success: #5cb85c; /* Succès, confirmations */
   --color-info: #5bc0de; /* Informations générales */
+  --bg-grey: #eee;
+  --menu-current-color: #fff;
 
   //    Font
   --font-family-base: "Rubik", sans-serif;
@@ -48,10 +52,29 @@
   --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.17), 0 4px 6px rgba(0, 0, 0, 0.12);
 }
 
+[data-theme="dark"] {
+  // Couleur
+  --color-primary: #fdda15; /* Jaune abeille */
+  --color-secondary: #d1a10e; /* Jaune foncé */
+  --color-accent: #f6e05e; /* Jaune clair */
+  --color-background: #1a2236; /* Fond très clair */
+  // --color-background-secondary: ;
+  --color-surface: #293145;
+  --color-text: #ddd; /* Texte sombre */
+  --color-text-min: #8d8d8d; /* Texte sombre */
+  --color-text-inverted: #ffffff; /* Texte clair */
+  --color-danger: #d9534f; /* Erreurs, dangers */
+  --color-success: #5cb85c; /* Succès, confirmations */
+  --color-info: #5bc0de; /* Informations générales */
+  --bg-grey: #1a2236;
+  --menu-current-color: #293145;
+}
+
 .body {
   font-family: var(--font-family-base);
   font-size: var(--font-size-base);
   color: var(--color-text);
+  background-color: var(--color-background);
 }
 
 .title {

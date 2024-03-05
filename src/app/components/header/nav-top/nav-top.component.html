@@ -1,17 +1,17 @@
 <div class="nav-header bg-white shadow-xs border-0">
   <div class="nav-top">
-    <div class="nav-left flex gap-1 aic">
+    <div class="nav--left">
       <span href="/">
         <img src="../assets/images/logo.png" width="40" alt="" />
       </span>
       <form action="#" class="float-left header-search">
         <div class="form-group mb-0 icon-input">
-          <i class="feather-search font-sm text-grey-400"></i>
+          <span class="form-group__icon">🔍</span>
           <input
             type="text"
             placeholder="Start typing to search.."
             height="40px"
-            class="bg-grey border-0 lh-32 pt-2 pb-2 ps-5 pe-3 font-xssss fw-500 rounded-xl w350 theme-dark-bg"
+            class="bg-grey input--recherche"
           />
         </div>
       </form>
@@ -95,18 +95,25 @@
 
   <div
     class="p-2 text-center ms-3 position-relative dropdown-menu-icon menu-icon cursor-pointer"
+    (click)="toggleDropdown()"
   >
     <div class="header-icon">
       <img src="../assets/images/icon/header/settings.svg" width="25" alt="" />
     </div>
-    <div class="dropdown-menu-settings switchcolor-wrap">
+    <div
+      class="dropdown-menu-settings switchcolor-wrap"
+      [class.active]="settingsIsActive"
+    >
       <h4 class="fw-700 font-sm mb-4">Settings</h4>
 
       <div class="card bg-transparent-card border-0 d-block mt-3">
         <h4 class="d-inline font-xssss mont-font fw-700">Header Background</h4>
         <div class="d-inline float-right mt-1">
           <label class="toggle toggle-menu-color"
-            ><input type="checkbox" /><span class="toggle-icon"></span
+            ><input
+              type="checkbox"
+              [checked]="menuColorActive"
+              (change)="toggleColor()" /><span class="toggle-icon"></span
           ></label>
         </div>
       </div>
@@ -114,7 +121,12 @@
         <h4 class="d-inline font-xssss mont-font fw-700">Menu Position</h4>
         <div class="d-inline float-right mt-1">
           <label class="toggle toggle-menu"
-            ><input type="checkbox" /><span class="toggle-icon"></span
+            ><input
+              type="checkbox"
+              [checked]="menuPositionActive"
+              (change)="menuService.toggleMenuPosition()" /><span
+              class="toggle-icon"
+            ></span
           ></label>
         </div>
       </div>
@@ -122,7 +134,10 @@
         <h4 class="d-inline font-xssss mont-font fw-700">Dark Mode</h4>
         <div class="d-inline float-right mt-1">
           <label class="toggle toggle-dark"
-            ><input type="checkbox" /><span class="toggle-icon"></span
+            ><input
+              type="checkbox"
+              [(ngModel)]="isDarkMode"
+              (change)="toggleDarkMode()" /><span class="toggle-icon"></span
           ></label>
         </div>
       </div>
