@@ -19,7 +19,10 @@
     
                 </span>  -->
     </div>
-    <a href="#" class="mob-menu ms-auto me-2 chat-active-btn"
+    <a
+      href="#"
+      class="mob-menu ms-auto me-2 chat-active-btn"
+      (click)="toggleSidebar()"
       ><span class="btn-round-md bg-greylight">📨</span></a
     >
     <a href="#" class="mob-menu me-2"
@@ -235,7 +238,11 @@
       </h6>
     </div>
   </div>
-  <a href="#" class="p-2 text-center ms-3 menu-icon chat-active-btn">
+  <a
+    href="#"
+    class="p-2 text-center ms-3 menu-icon chat-active-btn"
+    (click)="toggleSidebar()"
+  >
     <!-- <i class="feather-message-square font-xl text-current"></i> -->
     <div class="header-icon">
       <img

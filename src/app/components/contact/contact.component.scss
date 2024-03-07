@@ -1,0 +1,245 @@
+.right-chat {
+  backdrop-filter: blur(20px);
+  background-color: rgba(255, 255, 255, 0.3);
+  padding-top: 66px;
+  padding-bottom: 66px;
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  right: -400px;
+  width: 290px;
+  height: calc(100vh - 15px);
+  overflow: hidden;
+  // background: transparent;
+  transition: all 0.25s ease;
+  // padding-top: calc(90px + 6px);
+  padding-right: 15px;
+  padding-left: 15px;
+  box-sizing: border-box;
+
+  &.active-sidebar {
+    right: 0px;
+  }
+}
+.right-scroll-bar {
+  margin-left: 0px;
+  margin-top: 0.5rem;
+  overflow-y: scroll;
+}
+.box {
+  position: relative;
+  width: 100%;
+  height: 30vh;
+  margin: 0px 0 60px 0;
+  display: block;
+  background: transparent;
+
+  .shimmer {
+    overflow: hidden;
+  }
+
+  .lines {
+    position: absolute;
+    width: calc(100%);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    &:nth-child(2n + 1) {
+      height: calc(30% - 5px);
+    }
+
+    .s_shimmer {
+      background: rgba(0, 0, 0, 0.08);
+    }
+
+    .line {
+      position: relative;
+      left: 0;
+      width: 100%;
+      margin: 0px 0 5px 0;
+      border-radius: 5px;
+    }
+  }
+}
+.loaded {
+  .feed-body {
+    visibility: visible;
+    overflow: visible;
+    height: 100%;
+  }
+
+  .position-relative {
+    position: relative;
+  }
+}
+.fw-700 {
+  font-weight: 700;
+}
+.text-grey-500 {
+  color: #adb5bd;
+}
+.text-uppercase {
+  text-transform: uppercase;
+}
+.font-xsssss {
+  font-size: 10px;
+}
+.list-group-flush {
+  border-radius: 0;
+}
+h4 {
+  margin-bottom: 0.5rem;
+}
+.badge {
+  display: inline-block;
+  padding: 0.35em 0.65em;
+  font-size: 0.75em;
+  font-weight: 700;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 0.25rem;
+}
+.badge-primary {
+  background-color: #1e74fd;
+}
+.bg-success {
+  background-color: #10d876;
+}
+.bg-warning {
+  background-color: #fe9431;
+}
+
+.badge-pill {
+  padding-right: 0.6em;
+  padding-left: 0.6em;
+  border-radius: 10rem;
+}
+.btn-round-xss {
+  width: 8px;
+  height: 8px;
+  border-radius: 8px;
+  display: inline-block;
+  line-height: 25px;
+  text-align: center;
+}
+.list-group {
+  display: flex;
+  flex-direction: column;
+  padding-left: 0;
+  margin-bottom: 0;
+  border-radius: 0.25rem;
+
+  .list-group-item {
+    position: relative;
+
+    display: block;
+    padding: 0.5rem 0;
+    color: #212529;
+    text-decoration: none;
+    background-color: transparent;
+
+    .badge {
+      position: absolute;
+      right: 0;
+      top: 18px;
+      left: 80%;
+    }
+    span {
+      font-size: 12px;
+      color: #999;
+      margin-top: 3px;
+    }
+  }
+  .bg-transparent {
+    background-color: transparent;
+  }
+  .align-items-center {
+    align-items: center;
+  }
+  .d-flex {
+    display: flex;
+  }
+  figure {
+    margin: 0 0 1rem;
+    margin-right: 0.5rem;
+    margin-bottom: 0;
+  }
+  figure.avatar img {
+    border-radius: 100px;
+    width: 50px;
+  }
+  figure.avatar .w35 {
+    width: 35px;
+  }
+}
+.shadow-xss {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+}
+.rounded-xxl {
+  border-radius: 15px;
+}
+.bg-white {
+  background-color: #fff;
+}
+.ps-4 {
+  padding-left: 1.5rem;
+}
+.pe-3 {
+  padding-right: 1rem;
+}
+.pt-4 {
+  padding-top: 1.5rem;
+}
+.ms-auto {
+  margin-left: auto;
+}
+.list-group .list-group-item .text-white {
+  color: #fff;
+}
+.font-xssss {
+  font-size: 12px;
+}
+.font-xsssss {
+  font-size: 10px !important;
+}
+.text-grey-600 {
+  color: #6c757d;
+}
+.align-items-center {
+  align-items: center;
+}
+.btn-round-sm {
+  width: 35px;
+  height: 35px;
+  border-radius: 35px;
+  display: inline-block;
+  line-height: 35px;
+  text-align: center;
+}
+.bg-gold-gradiant {
+  background: linear-gradient(to right, #f2994a, #f2c94c);
+}
+.bg-mini-gradiant {
+  background: linear-gradient(to right, #ee0979, #ff6a00);
+}
+.bg-gold-gradiant {
+  background: linear-gradient(to right, #f2994a, #f2c94c);
+}
+.me-3 {
+  margin-right: 1rem;
+}
+.pb-4 {
+  padding-bottom: 1.5rem;
+}
+
+@media screen and (min-width: 1400px) {
+  .right-chat {
+    padding-top: calc(120px + 6px);
+  }
+}

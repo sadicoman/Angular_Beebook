@@ -2,6 +2,7 @@ import { Component, OnDestroy } from '@angular/core';
 import { MenuService } from '../../../services/menu.service';
 import { ThemeService } from '../../../services/theme.service';
 import { Subscription } from 'rxjs';
+import { ChatService } from '../../../services/chat.service';
 
 // Importez FormsModule
 import { FormsModule } from '@angular/forms';
@@ -24,7 +25,8 @@ export class NavTopComponent implements OnDestroy {
 
   constructor(
     public menuService: MenuService,
-    private themeService: ThemeService
+    private themeService: ThemeService,
+    private chatService: ChatService
   ) {
     this.subscription = new Subscription();
 
@@ -69,5 +71,9 @@ export class NavTopComponent implements OnDestroy {
 
   toggleColor() {
     this.menuService.toggleMenuCurrentColor();
+  }
+
+  toggleSidebar() {
+    this.chatService.toggleActiveSidebar();
   }
 }
