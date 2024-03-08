@@ -108,3 +108,22 @@
 .bold {
   font-weight: bold;
 }
+
+.feed-body {
+  visibility: hidden;
+  overflow: hidden;
+  height: 0;
+  opacity: 0;
+}
+.loaded .feed-body {
+  visibility: visible;
+  overflow: visible;
+  height: 100%;
+  opacity: 1;
+  transition: opacity 0.3s ease-out;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}

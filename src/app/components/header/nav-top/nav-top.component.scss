@@ -120,7 +120,7 @@
   z-index: 1000;
   display: none;
   min-width: 10rem;
-  padding: 0.5rem 0;
+  padding: 1.5rem;
   margin: 0;
   font-size: 1rem;
   color: #515184;
@@ -130,6 +130,47 @@
   background-clip: padding-box;
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 0.25rem;
+
+  &.show {
+    display: block;
+    margin: 0px;
+    position: absolute;
+    inset: 0px auto auto 0px;
+    transform: translate3d(1025px, 64px, 0px);
+  }
+
+  h4 {
+    margin-bottom: 1.5rem;
+  }
+
+  .card {
+    padding-left: 3rem;
+    margin-bottom: 1rem;
+    gap: inherit;
+
+    img {
+      left: 0px;
+    }
+
+    h5 {
+      font-size: 14px;
+      font-weight: 700;
+      color: #212529;
+      margin-bottom: 0.25rem;
+
+      span {
+        float: right;
+        font-weight: 600;
+        color: #ced4da;
+        font-size: 10px;
+      }
+    }
+    h6 {
+      font-weight: 500;
+      color: #adb5bd;
+      font-size: 12px;
+    }
+  }
 }
 .dropdown-menu-settings {
   visibility: hidden;
@@ -263,6 +304,7 @@
     content: "";
   }
 }
+
 @media screen and (min-width: 1400px) {
   .nav-header {
     height: 80px;

@@ -1,4 +1,4 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MenuService } from '../../../services/menu.service';
 import { ThemeService } from '../../../services/theme.service';
 import { Subscription } from 'rxjs';
@@ -6,6 +6,7 @@ import { ChatService } from '../../../services/chat.service';
 
 // Importez FormsModule
 import { FormsModule } from '@angular/forms';
+import { NotificationServiceService } from '../../../services/notification-service.service';
 
 @Component({
   selector: 'app-nav-top',
@@ -14,46 +15,46 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './nav-top.component.html',
   styleUrl: './nav-top.component.scss',
 })
-export class NavTopComponent implements OnDestroy {
+export class NavTopComponent implements OnInit, OnDestroy {
   isActive: boolean = false;
   settingsIsActive = false;
   isDarkMode = false;
   menuColorActive = false;
   menuPositionActive = false;
+  show = false;
 
-  private subscription: Subscription;
+  private subscription: Subscription = new Subscription();
 
   constructor(
     public menuService: MenuService,
     private themeService: ThemeService,
-    private chatService: ChatService
+    private chatService: ChatService,
+    private notificationService: NotificationServiceService
   ) {
-    this.subscription = new Subscription();
+    this.isDarkMode = this.themeService.isDarkMode(); // Initial state
+  }
 
-    const menuPositionSub = this.menuService
-      .getMenuPositionActive()
-      .subscribe((isActive) => {
+  ngOnInit() {
+    // Combine subscriptions for better management
+    this.subscription.add(
+      this.menuService.getMenuPositionActive().subscribe((isActive) => {
         this.menuPositionActive = isActive;
-      });
-
-    const menuColorSub = this.menuService
-      .getMenuCurrentColor()
-      .subscribe((isActive) => {
+      })
+    );
+    this.subscription.add(
+      this.menuService.getMenuCurrentColor().subscribe((isActive) => {
         this.menuColorActive = isActive;
-      });
-
-    this.subscription.add(menuPositionSub);
-    this.subscription.add(menuColorSub);
-
-    this.isDarkMode = this.themeService.isDarkMode(); // Assurez-vous que themeService gère aussi son état initialement
+      })
+    );
+    this.subscription.add(
+      this.notificationService.showNotification$.subscribe((show) => {
+        this.show = show;
+      })
+    );
   }
 
   toggleMenu() {
     this.menuService.toggleMenu();
-  }
-
-  ngOnDestroy(): void {
-    this.subscription.unsubscribe();
   }
 
   toggleDropdown() {
@@ -62,11 +63,12 @@ export class NavTopComponent implements OnDestroy {
 
   toggleDarkMode() {
     this.themeService.toggleTheme();
-    this.isDarkMode = this.themeService.isDarkMode(); // Mise à jour de la propriété après basculement
+    this.isDarkMode = this.themeService.isDarkMode();
   }
 
   toggleMenuColor() {
-    this.menuColorActive = !this.menuColorActive;
+    this.menuService.toggleMenuCurrentColor();
+    this.menuColorActive = !this.menuColorActive; // Suppose to reflect the change
   }
 
   toggleColor() {
@@ -75,5 +77,13 @@ export class NavTopComponent implements OnDestroy {
 
   toggleSidebar() {
     this.chatService.toggleActiveSidebar();
+  }
+
+  showPopup() {
+    this.notificationService.toggleNotification(!this.show);
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe(); // Une seule désinscription nécessaire
   }
 }

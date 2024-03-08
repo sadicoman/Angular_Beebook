@@ -1,0 +1,16 @@
+.main-content {
+  background-color: var(--color-background);
+  position: relative;
+  height: calc(100vh - 56px);
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  .middle-sidebar-bottom {
+    width: 100%;
+    padding: 76px 15px 0;
+
+    .middle-sidebar-left {
+      width: 100%;
+    }
+  }
+}
