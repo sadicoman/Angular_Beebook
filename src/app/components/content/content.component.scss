@@ -14,3 +14,30 @@
     }
   }
 }
+
+@media screen and (min-width: 1400px) {
+  .main-content {
+    flex-grow: 1;
+    padding-top: 90px;
+    padding-left: 280px;
+    padding-right: 0;
+    transition: all 0.25s;
+  }
+  .main-content .middle-sidebar-bottom {
+    display: flex;
+    flex: 1;
+  }
+  .main-content .middle-sidebar-bottom {
+    width: 100%;
+    padding: 20px 0px 10px 0px;
+  }
+  .main-content .middle-sidebar-bottom .middle-sidebar-left {
+    width: 100%;
+  }
+  .middle-sidebar-left {
+    padding-right: 0;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 960px;
+  }
+}
